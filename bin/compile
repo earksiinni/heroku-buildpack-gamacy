@@ -1,0 +1,6 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+
+cd $BUILD_DIR
+bundle exec rails assets:generate_graphql_documentation

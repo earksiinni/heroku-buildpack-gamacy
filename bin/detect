@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Assume that our pack is valid.
+echo "Gamacy"
+exit 0
