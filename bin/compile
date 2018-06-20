@@ -1,6 +1,19 @@
 #!/bin/sh
 
 BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+# Export env vars stored as files
+# https://devcenter.heroku.com/articles/buildpack-api#bin-compile
+blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+if [ -d "$ENV_DIR" ]; then
+  for e in $(ls $ENV_DIR); do
+    echo "$e" | grep -qvE "$blacklist_regex" &&
+      export "$e=$(cat $ENV_DIR/$e)"
+    :
+  done
+fi
 
 cd $BUILD_DIR
 echo "-----> Generating GraphQL documentation"
