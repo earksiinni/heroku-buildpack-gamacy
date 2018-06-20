@@ -3,4 +3,5 @@
 BUILD_DIR=$1
 
 cd $BUILD_DIR
+echo "-----> Generating GraphQL documentation"
 bundle exec rails assets:generate_graphql_documentation
