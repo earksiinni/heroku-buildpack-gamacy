@@ -21,4 +21,8 @@ echo "-----> Generating GraphQL documentation"
 bundle exec rails assets:generate_graphql_documentation
 
 echo "-----> Generating JS bundle for server-side rendering"
+cd $BUILD_DIR
+ls -a ./
+ls -a ./config
+ls -a ./config/webpack
 npx webpack --config ./config/webpack/server.js
