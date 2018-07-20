@@ -16,5 +16,9 @@ if [ -d "$ENV_DIR" ]; then
 fi
 
 cd $BUILD_DIR
+
 echo "-----> Generating GraphQL documentation"
 bundle exec rails assets:generate_graphql_documentation
+
+echo "-----> Generating JS bundle for server-side rendering"
+webpack --config ./config/webpack/server.js
