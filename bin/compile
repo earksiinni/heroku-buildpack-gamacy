@@ -20,8 +20,5 @@ cd $BUILD_DIR
 echo "-----> Generating GraphQL documentation"
 bundle exec rails assets:generate_graphql_documentation
 
-echo "-----> Generating Swagger documentation"
-bundle exec rails rswag:specs:swaggerize
-
 echo "-----> Generating JS bundle for server-side rendering"
 npx webpack --config ./config/webpack/server.js
