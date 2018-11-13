@@ -22,3 +22,9 @@ bundle exec rails assets:generate_graphql_documentation
 
 echo "-----> Generating JS bundle for server-side rendering"
 npx webpack --config ./config/webpack/server.js
+
+echo "-----> Dumping GraphQL schema"
+bundle exec rails graphql:schema:dump
+
+echo "-----> Generating Relay containers"
+yarn run relay
